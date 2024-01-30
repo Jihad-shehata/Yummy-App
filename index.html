@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yummy</title>
+    <!-- Webste Logo -->
+    <link rel="icon" href="./Images/logo.png">
+    <!-- Bootstrap and myStyle links -->
+    <link rel="stylesheet" href="./CSS/all.min.css">
+    <link rel="stylesheet" href="./CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS/mainStyle.css">
+    <!-- Scrollbar -->
+    <style>
+        /* width */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px white;
+            border-radius: 10px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #2b2424;
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2b2424;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- SideBar -->
+
+    <div class="bigSideBar d-flex position-fixed ">
+        <div class="sideBar rounded-2 overflow-hidden">
+            <div class="sideBar_Menu w-100 text-white ">
+                <div class="sideBar_options ">
+                    <ul class="list-unstyled pt-5 optionList ps-3">
+                        <div class="slideDown1">
+                            <li class=" pb-3 fs-6 fw-semibold  fst-italic openSearch  menuOption  d-flex"><img
+                                    src="./Images/logo.png" alt="" class="option-img "> Search</li>
+                        </div>
+                        <div class="slideDown2">
+                            <li class=" pb-3 fs-6 fw-semibold fst-italic menuOption d-flex categoryOption"><img
+                                    src="./Images/logo.png" alt="" class="option-img"> Categories</li>
+                        </div>
+                        <div class="slideDown3">
+                            <li class=" pb-3 fs-6 fw-semibold fst-italic menuOption d-flex areaOption"><img
+                                    src="./Images/logo.png" alt="" class="option-img"> Area</li>
+                        </div>
+                        <div class="slideDown4">
+                            <li class=" pb-3 fs-6 fw-semibold fst-italic menuOption d-flex ingredientsOption"><img
+                                    src="./Images/logo.png" alt="" class="option-img">
+                                ingredients</li>
+                        </div>
+                        <div class="slideDown5">
+                            <li class="  pb-3 fs-6 fw-semibold fst-italic menuOption d-flex contactOption"><img
+                                    src="./Images/logo.png" alt="" class="option-img ">  ContactUs</li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="sideBar_Icons ">
+                    <div class="icons ">
+                        <div class="Icons_line pb-2 text-center">
+                            <i class="fa-brands fa-facebook-f  m-2  iconHover    "></i>
+                            <i class="fa-brands fa-twitter m-2 iconHover "></i>
+                            <i class="fa-solid fa-globe  m-2 iconHover "></i>
+                        </div>
+                        <h6 class="ps-2 text-center pe-1 Copyright">Copyright Â© 2019 All Rights
+                            <br>Reserved
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sideBar2 bg-white rounded-2 text-center">
+            <img src="./Images/logo.png" alt="" class="w-75  mt-2">
+            <i id="vip" class="fa-solid fa-bars sideBar2Menu"></i>
+
+
+            <div class="sideBar2EndIcon">
+                <i class="fa-solid fa-globe  m-2 iconHover d-block  "></i>
+                <i class="fa-solid fa-share-nodes m-2 iconHover "></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Page -->
+
+    <div class="home min-vh-100">
+        <div class="container">
+            <!-- Random Meals -->
+            <div class="Random pt-5">
+                <div class="row randomMeals g-3 overflow-hidden">
+
+                </div>
+            </div>
+            <!-- Search -->
+
+            <div class="search">
+                <div class="row searchRow">
+
+                </div>
+            </div>
+
+            <!-- Search By Name  && By First Letter -->
+
+            <div class="searchName">
+                <div class="row MealFullSearch g-2 ">
+
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="category pt-3 pb-5">
+                <div class="row categoriesRow g-2">
+
+                </div>
+            </div>
+
+
+            <!-- Selected Category -->
+           <div class="selectedCategory">
+                <div class="row selectedCategoryRow g-2 pt-3">
+
+                </div>
+           </div>
+
+
+            <!-- Get Area -->
+            <div class="area">
+                <div class="row araeRow">
+
+                </div>
+            </div>
+
+            <!-- Selected Area -->
+            <div class="selectedArea">
+                <div class="row selectedAreaRow ">
+
+                </div>
+            </div>
+            <!-- Meals of selectedArea -->
+            <div class="mealsSelectedArea">
+                <div class="row mealsSelectedAreaRender">
+
+                </div>
+            </div>
+            <!-- Get Ingredients -->
+            <div class="ingredients">
+                <div class="row ingredientsRow  overflow-hidden">
+
+                </div>
+            </div>
+            <!-- selectedMealsIngrediants -->
+            <div class="selectedMealsIngrediants">
+                <div class="row selectedMealsIngrediantsRow">
+                    
+                </div>
+            </div>
+            <!-- Contact Us -->
+            <div class="contact pt-5">
+                <p class="text-center fillForm ">FILL YOUR FORM TO CONFIRM TOUR ORDER</p>
+                <div class="contactUs ">
+                    <div class="row">
+                        <div class="mb-3 col-md-6 ">
+                
+                            <input type="text" class="form-control m-1  searchMealName nameInput" placeholder="Your Name"
+                                id="exampleInputEmail1 " aria-describedby="emailHelp">
+                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3 ">
+                
+                                <input type="text" class="form-control m-1 searchMealName emailInput" placeholder="Your E-mail"
+                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
+                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-6 ">
+                
+                            <div class="mb-3">
+                                <input type="text" class="form-control m-1 searchMealName ageInput" placeholder="Your Age"
+                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
+                            </div>
+                
+                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                
+                                <input type="text" class="form-control m-1  searchMealName phoneInput" placeholder="Your Phone"
+                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
+                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-6 ">
+                
+                            <div class="mb-3">
+                                <input type="text" class="form-control m-1 searchMealName passwordInput" placeholder="Your Password"
+                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
+                            </div>
+                
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                
+                                <input type="text" class="form-control m-1  searchMealName rePasswoerdInput" placeholder="Re-Password"
+                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
+                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="submitButton text-center mt-5">
+                        <a class="btn but lol " role="button" aria-disabled="true">disabled</a>
+                    </div>
+                
+                
+                </div>
+                
+            </div>
+
+             <!-- Meal Meal Details -->
+            <div class="mealDetails pt-5 pb-5">
+                <div class="row  rowDetails">
+                    
+                    <div class="col-md-8 text-white">
+                       
+                   
+                            
+                        
+                    </div> 
+                </div>
+            </div>
+            <!-- Meal Details -->
+            <div class="mealDetails">
+                <div class="row rowDetails">
+            
+                </div>
+            </div>
+        </div> 
+
+
+
+
+
+
+
+
+
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- jQuery -->
+        <script src="./JS/jquery-3.7.0.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="./JS/bootstrap.bundle.min.js"></script>
+        <!-- myScript -->
+        <script src="./JS/mainScript.js"></script>
+</body>
+
+</html>

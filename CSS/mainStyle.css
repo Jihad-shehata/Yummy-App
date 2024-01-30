@@ -1,0 +1,160 @@
+/* ⁡⁣⁣⁢Home⁡ */
+.home {
+    background-color: #0d0d0d;
+}
+
+
+/* SideBar */
+.bigSideBar {
+    z-index: 9999999;
+}
+
+.sideBar_options {
+    padding-top: 30px;
+}
+
+
+.sideBar_Menu {
+    width: 15%;
+    min-height: 100vh;
+    background-color: #0d0d0d;
+
+}
+
+.option-img {
+    width: 20px;
+}
+
+.sideBar_Icons {
+    margin-top: 250px;
+}
+
+.iconHover {
+    transition: all .5s;
+}
+
+.Copyright {
+    font-size: 13px;
+}
+.contactAnchor
+{
+    text-decoration: none;
+    color: white;
+}
+
+.iconHover:hover {
+    color: rgba(255, 255, 0, 0.705);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.menuOption:hover {
+    color: rgba(255, 255, 0, 0.705);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.card{
+    background-color: #0d0d0d;
+}
+.menuOption {
+    transition: all .5s;
+    width: 20%;
+}
+
+
+.sideBar2 {
+    width: 15%;
+    min-height: 100vh;
+    cursor: pointer;
+
+}
+
+.sideBar2Menu {
+    margin-top: 200px;
+    font-size: 30px;
+
+}
+
+.sideBar2EndIcon {
+    margin-top: 270px !important;
+
+}
+
+/* Search */
+.searchByName {
+    margin: 10px;
+    color: rgb(236, 236, 96) !important;
+    font-size: 25px;
+    font-weight: bolder;
+
+}
+
+.container {
+    width: 80%;
+}
+
+.mealLayer,
+.categoryLayer {
+    background-color: rgba(255, 255, 255, 0.685);
+    transition: all 0.8s;
+    top: 100%;
+    left: 100%;
+    right: 100%;
+    bottom: 100%;
+    overflow: hidden;
+}
+
+.mealContent:hover .mealLayer {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.caregoryContent:hover .categoryLayer {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.categoryDescription{
+    font-size: 24px;
+}
+.slideDown1,.slideDown2,.slideDown3,.slideDown4,.slideDown5{
+    display: none ;
+}
+.selectedAreea{
+    cursor: pointer;
+}
+.ingrMaxheight{
+    max-height: 60px;
+}
+.fillForm{
+    font-size: 30px;
+    color: rgb(211, 211, 97);
+font-family: "Merriweather";
+}
+.but{
+   background-color: rgb(211, 211, 97) !important;
+   cursor: pointer;
+}
+.component{
+    width: fit-content;
+    height: fit-content;
+    background-color:rgb(211, 211, 97);
+    color: #0d0d0d;
+    
+}
+.InstructionsDetails{
+    color: rgb(211, 211, 97) !important;
+}
+.Recipes{
+    padding: -50px;
+        color: rgb(211, 211, 97) !important;
+}
+.categoryName{
+    cursor: pointer;
+}
+.ingrediantPointer{
+    cursor: pointer;
+}
