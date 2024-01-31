@@ -27,15 +27,16 @@ let selectedCategoryRow = document.querySelector(".selectedCategoryRow");
 let selectedMealsIngrediantsRow = document.querySelector(
   ".selectedMealsIngrediantsRow"
 );
- let nameInput = document.querySelector(".nameInput");
-  let emailInput; 
-  let ageInput
-  let phoneInput
-  let passwordInput
-let rePasswordInput  
-let vv
+let nameInput = document.querySelector(".nameInput");
+let emailInput = document.querySelector(".emailInput");
+let ageInput = document.querySelector(".ageInput");
+let phoneInput = document.querySelector(".phoneInput");
+let passwordInput = document.querySelector(".passwordInput");
+let rePasswordInput = document.querySelector(".rePasswordInput");
+let vv;
 let selectedArea;
-let contact1=document.querySelector(".contact1")
+let contact1 = document.querySelector(".contact1");
+let submittButton = document.querySelector(".submittButton");
 
 //    SideBar Openning and Closing
 
@@ -302,90 +303,6 @@ async function getAllMealIngredients() {
   ingredientsRow.innerHTML = IngradIendsCards;
 }
 ingredientsOption.addEventListener("click", getAllMealIngredients);
-let x1
-let x2
-let x3
-let x4
-let x5
-let x6
-// Get Contact Us
-contactOption.addEventListener("click", () => {
-  $(".area").css({ display: "none" });
-  $(".Random").css({ display: "none" });
-  $(".searchName").css({ display: "none" });
-  $(".search").css({ display: "none" });
-  $(".category").css({ display: "none" });
-  $(".ingredients").css({ display: "none" });
-  $(".contact").css({ display: "block" });
-  $(".selectedCategory").css({ display: "none" });
-  $(".mealDetails").css({ display: "none" });
-
-  contact.innerHTML = `<p class="text-center fillForm ">FILL YOUR FORM TO CONFIRM TOUR ORDER</p>
-                <div class="contactUs ">
-                    <div class="row">
-                        <div class="mb-3 col-md-6 ">
-                            
-                            <input type="text" class="form-control m-1  searchMealName nameInput" placeholder="Your Name"
-                                id="exampleInputEmail1 " aria-describedby="emailHelp">
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3 ">
-                                
-                                <input type="text" class="form-control m-1 searchMealName emailInput" placeholder="Your E-mail"
-                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class=" col-md-6 ">
-                           
-                           <div class="mb-3">
-    <input type="text" class="form-control m-1 searchMealName ageInput" placeholder="Your Age" id="exampleInputEmail1 "
-        aria-describedby="emailHelp">
-</div>
-
-
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                
-                                <input type="text" class="form-control m-1  searchMealName phoneInput" placeholder="Your Phone"
-                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class=" col-md-6 ">
-                           
-                           <div class="mb-3">
-                            <input type="text" class="form-control m-1 searchMealName passwordInput" placeholder="Your Password" id="exampleInputEmail1 "
-                                aria-describedby="emailHelp">
-                           </div>
-                    
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                            
-                                <input type="text" class="form-control m-1  searchMealName rePasswoerdInput" placeholder="Re-Password" id="exampleInputEmail1 "
-                                    aria-describedby="emailHelp">
-                    
-                            </div>
-                        </div>
-                    </div>
-               <div class="submitButton text-center mt-5">
-                <a class="btn but  " role="button" aria-disabled="true">disabled</a>
-               </div>
-
-
-                </div>`;
-  
-  
- 
-});
-
 
 // Create Meal Cards
 function createMealCards(data, div) {
@@ -535,10 +452,60 @@ $(".ingredientsRow").click((e) => {
     createMealCards(data, selectedMealsIngrediantsRow);
   }
   getIngrediantsSelectedMeals();
-  displayMealDetails(id);
 });
 
+//****************************************************** */
+// Get Contact Us
+contactOption.addEventListener("click", () => {
+  $(".area").css({ display: "none" });
+  $(".Random").css({ display: "none" });
+  $(".searchName").css({ display: "none" });
+  $(".search").css({ display: "none" });
+  $(".category").css({ display: "none" });
+  $(".ingredients").css({ display: "none" });
+  $(".contact").css({ display: "block" });
+  $(".selectedCategory").css({ display: "none" });
+  $(".mealDetails").css({ display: "none" });
+  $(".contact").css({ display: "block" });
+});
 
+// Vlidation of Inputs Function
+let x1;
+let x2;
+let x3;
+let x4;
+let x5;
+let x6;
+function validateInputs(name, email, phone, age, password) {
+  // Define regex patterns for each input
+  const nameRegex = /^[a-zA-Z\s]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\d{10}$/;
+  const ageRegex = /^\d+$/;
+  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-    
+  // Validate each input
+  let isNameValid = nameRegex.test(name);
+  let isEmailValid = emailRegex.test(email);
+  let isPhoneValid = phoneRegex.test(phone);
+  let isAgeValid = ageRegex.test(age);
+  let isPasswordValid = passwordRegex.test(password);
+  // const isRePasswordValid = password === rePassword;
 
+  // Return true if all validations pass, otherwise false
+  return (
+    isNameValid && isEmailValid && isPhoneValid && isAgeValid && isPasswordValid
+  );
+}
+
+submittButton.addEventListener("click", () => {
+    x1 = nameInput.value;
+    x2 = emailInput.value;
+    x3 = ageInput.value;
+    x4 = phoneInput.value;
+    x5 = passwordInput.value;
+    console.log(x2)
+  const isValid = validateInputs(x1, x2, x3, x4, x5);
+  console.log(isValid);
+  
+});
