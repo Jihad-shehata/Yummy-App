@@ -37,10 +37,10 @@
     </style>
 </head>
 
-<body>
+<body class="min-vh-100">
     <!-- SideBar -->
 
-    <div class="bigSideBar d-flex position-fixed ">
+    <div class="bigSideBar d-flex position-fixed min-vh-100">
         <div class="sideBar rounded-2 overflow-hidden">
             <div class="sideBar_Menu w-100 text-white ">
                 <div class="sideBar_options ">
@@ -64,7 +64,7 @@
                         </div>
                         <div class="slideDown5">
                             <li class="  pb-3 fs-6 fw-semibold fst-italic menuOption d-flex contactOption"><img
-                                    src="./Images/logo.png" alt="" class="option-img ">  ContactUs</li>
+                                    src="./Images/logo.png" alt="" class="option-img "> ContactUs</li>
                         </div>
                     </ul>
                 </div>
@@ -87,7 +87,7 @@
             <i id="vip" class="fa-solid fa-bars sideBar2Menu"></i>
 
 
-            <div class="sideBar2EndIcon">
+            <div class="sideBar2EndIcon min-vh-100">
                 <i class="fa-solid fa-globe  m-2 iconHover d-block  "></i>
                 <i class="fa-solid fa-share-nodes m-2 iconHover "></i>
             </div>
@@ -97,17 +97,17 @@
     <!-- Main Page -->
 
     <div class="home min-vh-100">
-        <div class="container">
+        <div class="container-md">
             <!-- Random Meals -->
             <div class="Random pt-5">
-                <div class="row randomMeals g-3 overflow-hidden">
+                <div class="row randomMeals g-2 overflow-hidden">
 
                 </div>
             </div>
             <!-- Search -->
 
             <div class="search">
-                <div class="row searchRow">
+                <div class="row searchRow  ">
 
                 </div>
             </div>
@@ -115,30 +115,30 @@
             <!-- Search By Name  && By First Letter -->
 
             <div class="searchName">
-                <div class="row MealFullSearch g-2 ">
+                <div class="row MealFullSearch ">
 
                 </div>
             </div>
 
             <!-- Categories -->
-            <div class="category pt-3 pb-5">
-                <div class="row categoriesRow g-2">
+            <div class="category pt-3 ">
+                <div class="row categoriesRow ">
 
                 </div>
             </div>
 
 
             <!-- Selected Category -->
-           <div class="selectedCategory">
-                <div class="row selectedCategoryRow g-2 pt-3">
-
+            <div class="selectedCategory">
+                <div class="row selectedCategoryRow g-1 pt-3">
+                    
                 </div>
-           </div>
+            </div>
 
 
             <!-- Get Area -->
             <div class="area">
-                <div class="row araeRow">
+                <div class="row araeRow ">
 
                 </div>
             </div>
@@ -151,107 +151,100 @@
             </div>
             <!-- Meals of selectedArea -->
             <div class="mealsSelectedArea">
-                <div class="row mealsSelectedAreaRender">
+                <div class="row mealsSelectedAreaRender ">
 
                 </div>
             </div>
             <!-- Get Ingredients -->
             <div class="ingredients">
-                <div class="row ingredientsRow  overflow-hidden">
+                <div class="row ingredientsRow  overflow-hidden ">
 
                 </div>
             </div>
             <!-- selectedMealsIngrediants -->
             <div class="selectedMealsIngrediants">
-                <div class="row selectedMealsIngrediantsRow">
-                    
+                <div class="row selectedMealsIngrediantsRow ">
+
                 </div>
             </div>
             <!-- Contact Us -->
-            <div class="contact pt-5">
+            <div class="contact pt-5 ">
                 <p class="text-center fillForm ">FILL YOUR FORM TO CONFIRM TOUR ORDER</p>
                 <div class="contactUs ">
                     <div class="row">
                         <div class="mb-3 col-md-6 ">
-                
-                            <input type="text" class="form-control m-1  searchMealName nameInput" placeholder="Your Name"
-                                id="exampleInputEmail1 " aria-describedby="emailHelp">
-                
+
+                            <input type="text" class="form-control m-1  searchMealName nameInput"
+                                placeholder="Your Name" id="exampleInputEmail1 " aria-describedby="emailHelp">
+
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3 ">
-                
-                                <input type="text" class="form-control m-1 searchMealName emailInput" placeholder="Your E-mail"
-                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
-                
+
+                                <input type="text" class="form-control m-1 searchMealName emailInput"
+                                    placeholder="Your E-mail" id="exampleInputEmail1 " aria-describedby="emailHelp">
+
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class=" col-md-6 ">
-                
+
                             <div class="mb-3">
-                                <input type="text" class="form-control m-1 searchMealName ageInput" placeholder="Your Age"
-                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
+                                <input type="text" class="form-control m-1 searchMealName ageInput"
+                                    placeholder="Your Age" id="exampleInputEmail1 " aria-describedby="emailHelp">
                             </div>
-                
-                
+
+
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                
-                                <input type="text" class="form-control m-1  searchMealName phoneInput" placeholder="Your Phone"
-                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
-                
+
+                                <input type="text" class="form-control m-1  searchMealName phoneInput"
+                                    placeholder="Your Phone" id="exampleInputEmail1 " aria-describedby="emailHelp">
+
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class=" col-md-6 ">
-                
+                        <div class=" col-md-12 ">
+
                             <div class="mb-3">
-                                <input type="text" class="form-control m-1 searchMealName passwordInput" placeholder="Your Password"
-                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
+                                <input type="text" class="form-control m-1 searchMealName passwordInput"
+                                    placeholder="Your Password" id="exampleInputEmail1 " aria-describedby="emailHelp">
                             </div>
-                
+
                         </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                
-                                <input type="text" class="form-control m-1  searchMealName rePasswoerdInput" placeholder="Re-Password"
-                                    id="exampleInputEmail1 " aria-describedby="emailHelp">
-                
-                            </div>
-                        </div>
+
                     </div>
                     <div class="submitButton text-center mt-5">
-                        <a class="btn but submittButton " role="button" aria-disabled="false">disabled</a>
+                        <a class="btn but submittButton disabled" role="button" aria-disabled="true">Confirm</a>
                     </div>
-                
-                
+
+
                 </div>
-                
+
             </div>
 
-             <!-- Meal Meal Details -->
+            <!-- Meal Meal Details -->
             <div class="mealDetails pt-5 pb-5">
                 <div class="row  rowDetails">
-                    
+
                     <div class="col-md-8 text-white">
-                       
-                   
-                            
-                        
-                    </div> 
+
+
+
+
+                    </div>
                 </div>
             </div>
             <!-- Meal Details -->
             <div class="mealDetails">
                 <div class="row rowDetails">
-            
+
                 </div>
             </div>
-        </div> 
+        </div>
 
 
 
@@ -263,7 +256,7 @@
 
 
 
-       
+
 
 
 

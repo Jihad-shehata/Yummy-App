@@ -96,7 +96,7 @@
 .mealLayer,
 .categoryLayer {
     background-color: rgba(255, 255, 255, 0.685);
-    transition: all 0.8s;
+    transition: all 0.7s;
     top: 100%;
     left: 100%;
     right: 100%;
@@ -158,3 +158,8 @@ font-family: "Merriweather";
 .ingrediantPointer{
     cursor: pointer;
 }
+.hover:hover{
+    color: white !important;
+}
+
+

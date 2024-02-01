@@ -32,11 +32,12 @@ let emailInput = document.querySelector(".emailInput");
 let ageInput = document.querySelector(".ageInput");
 let phoneInput = document.querySelector(".phoneInput");
 let passwordInput = document.querySelector(".passwordInput");
-let rePasswordInput = document.querySelector(".rePasswordInput");
+let rePasswordInput = document.querySelector(".rePasswordInput11");
 let vv;
 let selectedArea;
 let contact1 = document.querySelector(".contact1");
 let submittButton = document.querySelector(".submittButton");
+let selectedCategoryRow2 = document.getElementById("#myRow");
 
 //    SideBar Openning and Closing
 
@@ -99,6 +100,8 @@ openSearch.addEventListener("click", () => {
   $(".contact").css({ display: "none" });
   $(".selectedArea").css({ display: "none" });
   $(".mealDetails").css({ display: "none" });
+  $(".selectedMealsIngrediants").css({ display: "none" });
+  
   searchRow.innerHTML = `<div class="col-md-6">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label text-white searchByName">Search by Meal Name</label>
@@ -134,6 +137,7 @@ async function searchByName() {
   $(".selectedArea").css({ display: "none" });
   $(".mealDetails").css({ display: "none" });
   $(".selectedCategory").css({ display: "none" });
+  $(".selectedMealsIngrediants").css({ display: "none" });
   let mealName = searchMealName.value;
 
   const response = await fetch(`${baseURL}search.php?s=${mealName}`);
@@ -154,6 +158,7 @@ async function randomMaels() {
   $(".selectedArea").css({ display: "none" });
   $(".mealDetails").css({ display: "none" });
   $(".selectedCategory").css({ display: "none" });
+  $(".selectedMealsIngrediants").css({ display: "none" });
 
   let mealName = "";
   const response = await fetch(`${baseURL}search.php?s=${mealName}`);
@@ -175,6 +180,7 @@ async function searchByFirstLetterr() {
   $(".selectedArea").css({ display: "none" });
   $(".mealDetails").css({ display: "none" });
   $(".selectedCategory").css({ display: "none" });
+  $(".selectedMealsIngrediants").css({ display: "none" });
   let mealFirstLetter = searchFirstLetter.value;
 
   const response = await fetch(`${baseURL}search.php?f=${mealFirstLetter}`);
@@ -195,6 +201,8 @@ async function getAllMealCategories() {
   $(".selectedArea").css({ display: "none" });
   $(".mealDetails").css({ display: "none" });
   $(".selectedCategory").css({ display: "none" });
+  $(".selectedMealsIngrediants").css({ display: "none" });
+  
   const response = await fetch(`${baseURL}categories.php`);
   const data = await response.json();
   let categoriesCards = "";
@@ -230,6 +238,7 @@ async function getAllMealArea() {
   $(".selectedArea").css({ display: "none" });
   $(".mealDetails").css({ display: "none" });
   $(".selectedCategory").css({ display: "none" });
+  $(".selectedMealsIngrediants").css({ display: "none" });
   const response = await fetch(`${baseURL}list.php?a=list`);
   const data = await response.json();
   let areaCards = "";
@@ -270,6 +279,8 @@ async function getAllMealsByArea() {
   $(".selectedArea").css({ display: "block" });
   $(".mealDetails").css({ display: "none" });
   $(".selectedCategory").css({ display: "none" });
+  $(".selectedMealsIngrediants").css({ display: "none" });
+
   const response = await fetch(`${baseURL}filter.php?a=${selectedArea}`);
   const data = await response.json();
   createMealCards(data, selectedAreaRow);
@@ -288,15 +299,16 @@ async function getAllMealIngredients() {
   $(".selectedArea").css({ display: "none" });
   $(".mealDetails").css({ display: "none" });
   $(".selectedCategory").css({ display: "none" });
+  $(".selectedMealsIngrediants").css({ display: "none" });
   let IngradIendsCards = "";
   const response = await fetch(`${baseURL}list.php?i=list`);
   const data = await response.json();
   for (let i = 0; i < data.meals.length && i < 20; i++) {
     let ingrdientMealName = data.meals[i].strIngredient;
     let ingrdientMealDes = data.meals[i].strDescription;
-    IngradIendsCards += `<div class="col-md-3 text-center overflow-hidden">
-                        <img src="./Images/ingredientsLogo.PNG" alt="" class="w-50">
-                        <p class="fs-3 fw-semibold text-white ingrediantPointer">${ingrdientMealName}</p>
+    IngradIendsCards += `<div class="col-md-3 text-center overflow-hidden choosed">
+    <img src="./Images/ingredientsLogo.PNG" alt="" class="w-50">
+    <h6 class="fs-3 fw-semibold text-white ingrediantPointer">${ingrdientMealName}</h6>
                         <p class="text-white text-center ingrMaxheight">${ingrdientMealDes}</p>
                     </div>`;
   }
@@ -307,10 +319,10 @@ ingredientsOption.addEventListener("click", getAllMealIngredients);
 // Create Meal Cards
 function createMealCards(data, div) {
   let str = "";
-  for (let i = 0; i < data.meals.length; i++) {
+  for (let i = 0; i < data.meals.length && i < 20; i++) {
     let selectedImgArea = data.meals[i].strMealThumb;
     let selectedAreaMealName = data.meals[i].strMeal;
-    str += `  <div class="col-md-3  card ${i}">
+    str += `  <div class="col-md-3  card ${i} mb-1" id="myRow">
                         <div class="mealContent position-relative overflow-hidden">
                             <img src="${selectedImgArea}" alt="" class="w-100 mealImgFullSearch rounded-4">
                             <div class="mealLayer position-absolute rounded-4 d-flex justify-content-center align-items-center ">
@@ -367,7 +379,7 @@ async function displayMealDetails(id) {
   const ingredients = [];
   const measures = [];
 
-  for (let i = 1; i <= 20; i++) {
+  for (let i = 1; i <= 10; i++) {
     const ingredient = data.meals[0][`strIngredient${i}`];
     const measure = data.meals[0][`strMeasure${i}`];
 
@@ -397,12 +409,14 @@ async function displayMealDetails(id) {
                             
                         `;
   }
-  pageContent += `<div class="row  mt-3">
-                      <div class="offset-5 col-md-1 me-2">
-    <button type="button" class="btn btn-outline-danger">Youtube</button>
+  pageContent += `<div class="row  mt-3 gy-2">
+                      <div class="offset-md-5  col-md-1 ">
+    <button type="button" class="btn border border-2 border-danger" ><a class="text-decoration-none text-danger hover" href="https://www.youtube.com/results?search_query=
+how to cook ${data.meals[0].strMeal}">Youtue</a></button>
 </div>
 <div class="col-md-1 ">
-    <button type="button" class="btn btn-outline-warning">Source</button>
+    <button type="button" class="btn border border-2 border-warning"><a class="text-decoration-none text-warning hover" href="https://www.google.com/search?q= ${data.meals[0].strMeal}
+">Source</a></button>
 </div>
 </div>`;
   rowDetails.innerHTML = pageContent;
@@ -411,9 +425,13 @@ async function displayMealDetails(id) {
 //Get Category Meals
 
 $(".categoriesRow").click((e) => {
-  x = $(e.target).text();
-  console.log($(e.target).children().text());
-
+  if (e.target.tagName == "H1") {
+    x = $(e.target).text();
+  } else if (e.target.tagName == "DIV") {
+    x = $(".categoryLayer :first").text();
+  } else if (e.target.tagName == "P") {
+    x = $(".categoryLayer :first").text();
+  }
   async function getCategorySelectedMeals() {
     $(".area").css({ display: "none" });
     $(".Random").css({ display: "none" });
@@ -423,6 +441,7 @@ $(".categoriesRow").click((e) => {
     $(".ingredients").css({ display: "none" });
     $(".contact").css({ display: "none" });
     $(".mealDetails").css({ display: "none" });
+    $(".selectedMealsIngrediants").css({ display: "none" });
     $(".selectedCategory").css({ display: "block" });
     console.log(x);
     const response = await fetch(`${baseURL}filter.php?c=${x}`);
@@ -430,11 +449,20 @@ $(".categoriesRow").click((e) => {
     createMealCards(data, selectedCategoryRow);
   }
   getCategorySelectedMeals();
-  displayMealDetails(id);
 });
-let y;
+let lol;
 $(".ingredientsRow").click((e) => {
-  y = $(e.target).text();
+  lol = $(e.target).text();
+  // if (e.target.tagName == "H6") {
+  //   lol = $(e.target).text();
+  // } else if (e.target.tagName == "IMG") {
+  //   lol = $(".choosed h6.ingrediantPointer").text();
+  // } else if (e.target.tagName == "P") {
+  //   lol = $(".choosed h6.ingrediantPointer").text();
+  // } else if (e.target.tagName == "DIV") {
+  //   lol = $(".choosed h6.ingrediantPointer").text();
+  // }
+  console.log(lol);
   async function getIngrediantsSelectedMeals() {
     $(".area").css({ display: "none" });
     $(".Random").css({ display: "none" });
@@ -445,9 +473,9 @@ $(".ingredientsRow").click((e) => {
     $(".contact").css({ display: "none" });
     $(".mealDetails").css({ display: "none" });
     $(".selectedCategory").css({ display: "none" });
-    // $(".selectedMealsIngrediants").css({ display: "block" });
+    $(".selectedMealsIngrediants").css({ display: "block" });
 
-    const response = await fetch(`${baseURL}filter.php?i=${y}`);
+    const response = await fetch(`${baseURL}filter.php?i=${lol}`);
     const data = await response.json();
     createMealCards(data, selectedMealsIngrediantsRow);
   }
@@ -466,22 +494,18 @@ contactOption.addEventListener("click", () => {
   $(".contact").css({ display: "block" });
   $(".selectedCategory").css({ display: "none" });
   $(".mealDetails").css({ display: "none" });
+  $(".selectedMealsIngrediantsRow").css({ display: "none" });
   $(".contact").css({ display: "block" });
 });
 
 // Vlidation of Inputs Function
-let x1;
-let x2;
-let x3;
-let x4;
-let x5;
-let x6;
-function validateInputs(name, email, phone, age, password) {
+
+function validateInputs(name, email, age, phone, password) {
   // Define regex patterns for each input
   const nameRegex = /^[a-zA-Z\s]+$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phoneRegex = /^\d{10}$/;
   const ageRegex = /^\d+$/;
+  const phoneRegex = /^\d{10}$/;
   const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
   // Validate each input
@@ -490,22 +514,35 @@ function validateInputs(name, email, phone, age, password) {
   let isPhoneValid = phoneRegex.test(phone);
   let isAgeValid = ageRegex.test(age);
   let isPasswordValid = passwordRegex.test(password);
-  // const isRePasswordValid = password === rePassword;
 
   // Return true if all validations pass, otherwise false
   return (
     isNameValid && isEmailValid && isPhoneValid && isAgeValid && isPasswordValid
   );
 }
+let x1;
+let x2;
+let x3;
+let x4;
+let x5;
 
-submittButton.addEventListener("click", () => {
-    x1 = nameInput.value;
-    x2 = emailInput.value;
-    x3 = ageInput.value;
-    x4 = phoneInput.value;
-    x5 = passwordInput.value;
-    console.log(x2)
-  const isValid = validateInputs(x1, x2, x3, x4, x5);
-  console.log(isValid);
-  
+nameInput.addEventListener("blur", () => {
+  x1 = nameInput.value;
+  console.log(x1);
+});
+emailInput.addEventListener("blur", () => {
+  x2 = emailInput.value;
+});
+ageInput.addEventListener("blur", () => {
+  x3 = ageInput.value;
+});
+phoneInput.addEventListener("blur", () => {
+  x4 = phoneInput.value;
+});
+passwordInput.addEventListener("blur", () => {
+  x5 = passwordInput.value;
+  let isValid = validateInputs(x1, x2, x3, x4, x5);
+  if (isValid) {
+    submittButton.classList.remove("disabled");
+  }
 });
