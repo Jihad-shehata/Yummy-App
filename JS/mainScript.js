@@ -344,7 +344,7 @@ function createMealCards(data, div) {
 }
 
 // Display MealDetails
-let x;
+
 async function displayMealDetails(id) {
   $(".area").css({ display: "none" });
   $(".Random").css({ display: "none" });
@@ -423,15 +423,9 @@ how to cook ${data.meals[0].strMeal}">Youtue</a></button>
 }
 
 //Get Category Meals
-
+let mm;
 $(".categoriesRow").click((e) => {
-  if (e.target.tagName == "H1") {
-    x = $(e.target).text();
-  } else if (e.target.tagName == "DIV") {
-    x = $(".categoryLayer :first").text();
-  } else if (e.target.tagName == "P") {
-    x = $(".categoryLayer :first").text();
-  }
+ mm=$(e.target).text()
   async function getCategorySelectedMeals() {
     $(".area").css({ display: "none" });
     $(".Random").css({ display: "none" });
@@ -443,8 +437,8 @@ $(".categoriesRow").click((e) => {
     $(".mealDetails").css({ display: "none" });
     $(".selectedMealsIngrediants").css({ display: "none" });
     $(".selectedCategory").css({ display: "block" });
-    console.log(x);
-    const response = await fetch(`${baseURL}filter.php?c=${x}`);
+   
+    const response = await fetch(`${baseURL}filter.php?c=${mm}`);
     const data = await response.json();
     createMealCards(data, selectedCategoryRow);
   }
@@ -453,16 +447,8 @@ $(".categoriesRow").click((e) => {
 let lol;
 $(".ingredientsRow").click((e) => {
   lol = $(e.target).text();
-  // if (e.target.tagName == "H6") {
-  //   lol = $(e.target).text();
-  // } else if (e.target.tagName == "IMG") {
-  //   lol = $(".choosed h6.ingrediantPointer").text();
-  // } else if (e.target.tagName == "P") {
-  //   lol = $(".choosed h6.ingrediantPointer").text();
-  // } else if (e.target.tagName == "DIV") {
-  //   lol = $(".choosed h6.ingrediantPointer").text();
-  // }
-  console.log(lol);
+ 
+
   async function getIngrediantsSelectedMeals() {
     $(".area").css({ display: "none" });
     $(".Random").css({ display: "none" });
