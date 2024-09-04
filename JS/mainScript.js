@@ -489,10 +489,10 @@ contactOption.addEventListener("click", () => {
 function validateInputs(name, email, age, phone, password) {
   // Define regex patterns for each input
   const nameRegex = /^[a-zA-Z\s]+$/;
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
   const ageRegex = /^\d+$/;
-  const phoneRegex = /^\d{10}$/;
-  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  const phoneRegex = /^01[0125][0-9]{8}$/;
+  const passwordRegex =/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
 
   // Validate each input
   let isNameValid = nameRegex.test(name);
